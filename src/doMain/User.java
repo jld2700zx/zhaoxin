@@ -1,4 +1,4 @@
-package doMain;
+package domain;
 
 
 

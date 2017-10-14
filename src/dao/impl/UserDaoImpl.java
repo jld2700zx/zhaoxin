@@ -1,14 +1,16 @@
 package dao.impl;
 
-import dao.UserDaoImpl;
-import doMain.User;
+import dao.UserDao;
+import domain.User;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import utils.C3P0Utils;
-//import utils.Dbutils;
+
+import java.sql.Connection;
 
 
-public class UserDao implements UserDaoImpl{
+
+public class UserDaoImpl implements UserDao {
 
    /* public void addUser(User user){
         Connection conn = null;
@@ -45,42 +47,42 @@ public class UserDao implements UserDaoImpl{
 
 
     }
-//    public User login(User user) throws Exception {
-//        Connection conn = null;
-//        PreparedStatement ps = null;
-//        ResultSet rs = null;
-//        User u = null;
-//       try {
-//           conn = C3P0Utils.getConnection();
-////           conn.setTransactionIsolation(Connection.RANSACTION_REPEATABLE_READ);//设置级别为4，避免脏读，不可重复读。
-//           conn.setAutoCommit(false);//开启事务
-//           ps = conn.prepareStatement("SELECT * FROM users WHERE username = ? AND password = ?");
-//           ps.setString(1,user.getUsername());
-//           ps.setString(2,user.getPassword());
-//           rs = ps.executeQuery();
-//           if(rs.next()){
-//                u  = new User();
-//                u.setUsername(rs.getString(2));
-//                u.setPassword(rs.getString(3));
-//                u.setId(rs.getInt(1));
-//                u.setEmail(rs.getString(4));
-//                u.setBirthday(rs.getString(5));
-//           }
-//       }catch (Exception e){
-//            e.printStackTrace();
-//       }finally {
-//          C3P0Utils.release(rs,ps,conn);
-//       }
-//            return u;
-//    }
-
+  /*  public User login(User user) throws Exception {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        User u = null;
+       try {
+           conn = C3P0Utils.getConnection();
+//           conn.setTransactionIsolation(Connection.RANSACTION_REPEATABLE_READ);//设置级别为4，避免脏读，不可重复读。
+           conn.setAutoCommit(false);//开启事务
+           ps = conn.prepareStatement("SELECT * FROM users WHERE username = ? AND password = ?");
+           ps.setString(1,user.getUsername());
+           ps.setString(2,user.getPassword());
+           rs = ps.executeQuery();
+           if(rs.next()){
+                u  = new User();
+                u.setUsername(rs.getString(2));
+                u.setPassword(rs.getString(3));
+                u.setId(rs.getInt(1));
+                u.setEmail(rs.getString(4));
+                u.setBirthday(rs.getString(5));
+           }
+       }catch (Exception e){
+            e.printStackTrace();
+       }finally {
+          C3P0Utils.release(rs,ps,conn);
+       }
+            return u;
+    }
+*/
     public User login(User user) throws Exception{
             User u = new User();
     try{
             QueryRunner qr = new QueryRunner(C3P0Utils.getDataSource());
-//          Connection  conn = C3P0Utils.getConnection();
-//          conn.setAutoCommit(false);
-//          conn.setTransactionIsolation(Connection.RANSACTION_REPEATABLE_READ);
+            Connection  conn = C3P0Utils.getConnection();
+            conn.setAutoCommit(false);
+            conn.setTransactionIsolation(4);//避免脏读，不可重复读
             u =  qr.query("select * from users where username=? and password=?",new BeanHandler<User>(User.class),user.getUsername(),user.getPassword());
     }catch (Exception e){
         e.printStackTrace();

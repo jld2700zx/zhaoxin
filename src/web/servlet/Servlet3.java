@@ -1,9 +1,7 @@
 package web.servlet;
 
-import doMain.User;
+import domain.User;
 import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.beanutils.ConvertUtils;
-import org.apache.commons.beanutils.locale.converters.DateLocaleConverter;
 import service.UserService;
 import service.impl.UserServiceImpl;
 
@@ -13,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Date;
 
 @WebServlet(name = "Servlet3")
 public class Servlet3 extends HttpServlet {

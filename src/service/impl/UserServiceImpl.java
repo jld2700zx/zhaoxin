@@ -1,13 +1,13 @@
 package service.impl;
 
-import dao.UserDaoImpl;
-import dao.impl.UserDao;
-import doMain.User;
+import dao.UserDao;
+import dao.impl.UserDaoImpl;
+import domain.User;
 import service.UserService;
 
 public class UserServiceImpl implements UserService {
 
-    UserDaoImpl userdao = new UserDao();
+    UserDao userdao = new UserDaoImpl();
     public void register(User user)throws Exception{
         userdao.addUser(user);
     }

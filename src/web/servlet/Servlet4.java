@@ -1,7 +1,6 @@
 package web.servlet;
 
-import doMain.User;
-import org.apache.commons.beanutils.BeanUtils;
+import domain.User;
 import service.UserService;
 import service.impl.UserServiceImpl;
 

@@ -1,6 +1,6 @@
 package web.servlet;
 
-import doMain.User;
+import domain.User;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.beanutils.locale.converters.DateLocaleConverter;

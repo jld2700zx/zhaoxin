@@ -1,8 +1,8 @@
 package dao;
 
-import doMain.User;
+        import domain.User;
 
-public interface UserDaoImpl {
+public interface UserDao {
     public void addUser(User user) throws Exception;
     public User login(User user) throws Exception;
     public void updateUser(User user)throws Exception;
