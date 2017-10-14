@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <servlet>
+        <description>This is the description of my J2EE component</description>
+        <display-name>This is the display name of my J2EE component</display-name>
+        <servlet-name>Servlet</servlet-name>
+        <servlet-class>web.servlet.Servlet</servlet-class>
+    </servlet>
+    <servlet>
+
+
+
+        <servlet-name>Servlet2</servlet-name>
+        <servlet-class>web.servlet.Servlet2</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Servlet3</servlet-name>
+        <servlet-class>web.servlet.Servlet3</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Servlet4</servlet-name>
+        <servlet-class>web.servlet.Servlet4</servlet-class>
+    </servlet>
+
+
+
+
+    <servlet-mapping>
+        <servlet-name>Servlet</servlet-name>
+        <url-pattern>/servlet/Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Servlet2</servlet-name>
+        <url-pattern>/servlet/Servlet2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Servlet3</servlet-name>
+        <url-pattern>/servlet/Servlet3</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>Servlet4</servlet-name>
+    <url-pattern>/servlet/Servlet4</url-pattern>
+
+
+</servlet-mapping>
+</web-app>
